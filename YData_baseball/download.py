@@ -24,6 +24,18 @@ def download_homework(homework_number):
     return download_class_file(file_name, "homework")
 
 
+def download_problem_set(problem_set_number):
+    """A function to download a problem set""" 
+    file_name = "problem_set_" + str(problem_set_number).zfill(2) + ".ipynb"
+    return download_class_file(file_name, "problem_set")
+
+
+def download_lab(lab_number):
+    """A function to download a lab""" 
+    file_name = "lab_" + str(problem_set_number).zfill(2) + ".ipynb"
+    return download_class_file(file_name, "lab")
+
+
 def download_class_code(class_number, with_answers = False):
     """A function to download class code""" 
     file_name = "class_" + str(class_number).zfill(2) 
@@ -100,8 +112,8 @@ def download_class_file(file_name, file_type):
 
     
     # check that file_type is one of:  class_code, data, homework, images, slides
-    if file_type not in ["class_code", "data", "homework", "images", "slides", "project", "practice_code"]:
-        raise Exception('The file_type argument must be a string set to either: "class_code", "data", "homework", "images", "slides", "project", "practice_code"')
+    if file_type not in ["class_code", "data", "homework", "images", "slides", "project", "practice_code", "problem_set", "lab"]:
+        raise Exception('The file_type argument must be a string set to either: "class_code", "data", "homework", "images", "slides", "project", "practice_code", "problem_set", "lab"')
 
 
     full_file_name = get_basepath() + "/" + file_type + "/" + file_name
