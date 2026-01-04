@@ -79,6 +79,7 @@ def get_basepath():
 
 
 
+
 def get_github_file_names(): 
     """A helper function that returns a dictionary listing all the files on the YData GitHub repository."""
  
@@ -96,10 +97,12 @@ def get_github_file_names():
         curr_file_name = github_files["tree"][i]["path"]
         
         if curr_file_name.startswith("ClassMaterial/"):
+            
             curr_file_pieces = curr_file_name.split("/")
             
-            if len(curr_file_pieces) == 3:
-                class_files[curr_file_pieces[1]] = class_files.get(curr_file_pieces[1], []) + [curr_file_pieces[2]]
+            if len(curr_file_pieces) >= 3:
+                
+                class_files[curr_file_pieces[1]] = class_files.get(curr_file_pieces[1], []) + ["/".join(curr_file_pieces[2:])]
             
     return class_files
 
