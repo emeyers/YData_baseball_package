@@ -13,7 +13,7 @@ def download_data(file_name, save_in_directory = False):
     return download_class_file(file_name, "data", save_in_directory)
     
 
-def download_image(file_name, save_in_directory = False:
+def download_image(file_name, save_in_directory = False):
     """A function to download YData baseball images"""            
     return download_class_file(file_name, "images", save_in_directory)
 
