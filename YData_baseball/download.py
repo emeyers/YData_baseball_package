@@ -8,35 +8,35 @@ import requests
 import os
 
 
-def download_data(file_name, save_in_directory):
+def download_data(file_name, save_in_directory = True):
     """A function to download YData baseball data"""
     return download_class_file(file_name, "data", save_in_directory)
     
 
-def download_image(file_name, save_in_directory):
+def download_image(file_name, save_in_directory = True):
     """A function to download YData baseball images"""            
     return download_class_file(file_name, "images", save_in_directory)
 
 
-def download_homework(homework_number, save_in_directory):
+def download_homework(homework_number, save_in_directory = True):
     """A function to download homework""" 
     file_name = "homework_" + str(homework_number).zfill(2) + ".ipynb"
     return download_class_file(file_name, "homework", save_in_directory)
 
 
-def download_problem_set(problem_set_number, save_in_directory):
+def download_problem_set(problem_set_number, save_in_directory = True):
     """A function to download a problem set""" 
     file_name = "problem_set_" + str(problem_set_number).zfill(2) + ".ipynb"
     return download_class_file(file_name, "problem_set", save_in_directory)
 
 
-def download_lab(lab_number, save_in_directory):
+def download_lab(lab_number, save_in_directory = True):
     """A function to download a lab""" 
     file_name = "lab_" + str(problem_set_number).zfill(2) + ".ipynb"
     return download_class_file(file_name, "lab", save_in_directory)
 
 
-def download_class_code(class_number, with_answers = False, save_in_directory):
+def download_class_code(class_number, with_answers = False, save_in_directory = True):
     """A function to download class code""" 
     file_name = "class_" + str(class_number).zfill(2) 
     
@@ -48,7 +48,7 @@ def download_class_code(class_number, with_answers = False, save_in_directory):
     download_class_file(file_name, "class_code", save_in_directory)
 
 
-def download_practice_code(practice_number, with_answers = False, save_in_directory):
+def download_practice_code(practice_number, with_answers = False, save_in_directory = True):
     """A function to download code from the practice sessions""" 
     file_name = "practice_" + str(practice_number).zfill(2) 
         
@@ -60,7 +60,7 @@ def download_practice_code(practice_number, with_answers = False, save_in_direct
     download_class_file(file_name, "practice_code", save_in_directory)
 
 
-def download_slides(class_number, save_in_directory):
+def download_slides(class_number, save_in_directory = True):
     """A function to download the class slides""" 
     file_name = "class_" + str(class_number).zfill(2) + "_slides.pdf"
     return download_class_file(file_name, "slides", save_in_directory)
