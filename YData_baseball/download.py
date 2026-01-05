@@ -110,7 +110,7 @@ def get_github_file_names():
 
 
 
-def download_class_file(file_name, file_type):
+def download_class_file(file_name, file_type, save_in_directory = True):
     """A helper function that can download any class_code, data, homework, images, or slides on the YData GitHub repository."""
 
     
@@ -119,22 +119,33 @@ def download_class_file(file_name, file_type):
         raise Exception('The file_type argument must be a string set to either: "class_code", "data", "homework", "images", "slides", "project", "practice_code", "problem_set", "lab"')
 
 
-    full_file_name = get_basepath() + "/" + file_type + "/" + file_name
-    
+    github_file_name = get_basepath() + "/" + file_type + "/" + file_name
+
     
     # check whether the file exists on the GitHub YData website
-    github_file_names = get_github_file_names()
-    if file_name not in github_file_names[file_type]:
-        raise Exception("The file you are requesting " + file_name + " does not exist on the YData GitHub site. The " + file_type +" files that exist are: " + ' '.join(github_file_names[file_type]))
+    all_github_file_names = get_github_file_names()
+    if file_name not in all_github_file_names[file_type]:
+        raise Exception("The file you are requesting " + file_name + " does not exist on the YData GitHub site. The " + file_type +" files that exist are: " + ' '.join(all_github_file_names[file_type]))
+
+
+    # if file_name is in the form: dir_name/file can create the directory dir_name to save it in
+    if save_in_directory: 
         
+        dir_name  = "/".join(file_name.split("/")[0:-1])
         
+        if not os.path.isdir(dir_name):
+            os.makedirs(dir_name)
+    else:
+        file_name = file_name.split("/")[-1]   
+
+    
     # Only download the file if it doesn't already exist on one's computer
     # Could make this an assertion error, but better to just print a message for now
     if os.path.exists(file_name):
         print("The file `" + file_name + "` already exists.")
         print("If you would like to download a new copy of the file, please rename the existing copy of the file.")
     else:
-        urllib.request.urlretrieve(full_file_name, file_name)
+        urllib.request.urlretrieve(github_file_name, file_name)
 
 
 
