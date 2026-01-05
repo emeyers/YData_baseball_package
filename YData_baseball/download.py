@@ -133,7 +133,7 @@ def download_class_file(file_name, file_type, save_in_directory = True):
         
         dir_name  = "/".join(file_name.split("/")[0:-1])
         
-        if not os.path.isdir(dir_name):
+        if (not os.path.isdir(dir_name)) and (not dir_name == ""):
             os.makedirs(dir_name)
     else:
         file_name = file_name.split("/")[-1]   
