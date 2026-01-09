@@ -32,7 +32,7 @@ def download_problem_set(problem_set_number, save_in_directory = False):
 
 def download_lab(lab_number, save_in_directory = False):
     """A function to download a lab""" 
-    file_name = "lab_" + str(problem_set_number).zfill(2) + ".ipynb"
+    file_name = "lab_" + str(lab_number).zfill(2) + ".ipynb"
     return download_class_file(file_name, "lab", save_in_directory)
 
 

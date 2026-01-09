@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='YData_baseball',
-    version='2026.8',
+    version='2026.9',
     packages=find_packages(exclude=['tests*']),
     license='MIT',
     description='A package to download YData Baseball files',
