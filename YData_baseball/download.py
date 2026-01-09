@@ -33,7 +33,7 @@ def download_problem_set(problem_set_number, save_in_directory = False):
 def download_lab(lab_number, save_in_directory = False):
     """A function to download a lab""" 
     file_name = "lab_" + str(lab_number).zfill(2) + ".ipynb"
-    return download_class_file(file_name, "lab", save_in_directory)
+    return download_class_file(file_name, "labs", save_in_directory)
 
 
 def download_class_code(class_number, with_answers = False, save_in_directory = False):
@@ -115,7 +115,7 @@ def download_class_file(file_name, file_type, save_in_directory = False):
 
     
     # check that file_type is one of:  class_code, data, homework, images, slides
-    if file_type not in ["class_code", "data", "homework", "images", "slides", "project", "practice_code", "problem_set", "lab"]:
+    if file_type not in ["class_code", "data", "homework", "images", "slides", "project", "practice_code", "problem_set", "labs"]:
         raise Exception('The file_type argument must be a string set to either: "class_code", "data", "homework", "images", "slides", "project", "practice_code", "problem_set", "lab"')
 
 
